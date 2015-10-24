@@ -32,6 +32,12 @@ class ViewController: UIViewController {
         existingCustomerBtn.setImage(unchecked, forState: .Normal)
     }
     
+    func turnOffNewCustomer(){
+        isNewCustomer = false
+        let unchecked = UIImage(named:"unchecked")
+        newCustomerBtn.setImage(unchecked, forState: .Normal)
+    }
+    
     @IBAction func newCustomerBtnChanged(sender: AnyObject) {
         if (isNewCustomer){
             let uncheckedImage = UIImage(named: "unchecked")
@@ -47,6 +53,30 @@ class ViewController: UIViewController {
 
 
     @IBAction func existingCustomerBtnChanged(sender: AnyObject) {
+        if isExistingCustomer {
+            let uncheckedImage = UIImage(named:"unchecked")
+            existingCustomerBtn.setImage(uncheckedImage,forState: .Normal)
+            isExistingCustomer = false
+        } else {
+            let checked = UIImage(named:"checked")
+            existingCustomerBtn.setImage(checked, forState: .Normal)
+            isExistingCustomer = true
+        }
+        turnOffNewCustomer()
     }
+    
+
+    @IBAction func continueBtnPressed(sender: UIButton) {
+        if (isNewCustomer){
+            let mapViewControllerObejct = self.storyboard?.instantiateViewControllerWithIdentifier("NewCustomerDetailsController") as? NewCustomerDetailsController
+            self.navigationController?.pushViewController(mapViewControllerObejct!, animated: true)
+        }
+        
+        if (isExistingCustomer){
+            let next = self.storyboard?.instantiateViewControllerWithIdentifier("BasDetailsController") as? BasDetailsController
+            self.navigationController?.pushViewController(next!, animated: true)
+        }
+    }
+    
 }
 
