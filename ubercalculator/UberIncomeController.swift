@@ -20,4 +20,9 @@ class UberIncomeController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func continueBtnPressed(sender: AnyObject) {
+        let vehicleExpenses = self.storyboard?.instantiateViewControllerWithIdentifier("VehicleExpensesController") as? VehicleExpensesController
+        self.navigationController?.pushViewController(vehicleExpenses!, animated: true)
+        
+    }
 }

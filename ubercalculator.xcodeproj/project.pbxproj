@@ -14,6 +14,9 @@
 		742AFA091BDC3B3E0091DAB6 /* BankAccountDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742AFA081BDC3B3E0091DAB6 /* BankAccountDetailsController.swift */; };
 		742AFA0B1BDC3C3D0091DAB6 /* UberIncomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742AFA0A1BDC3C3D0091DAB6 /* UberIncomeController.swift */; };
 		742AFA0D1BDC50380091DAB6 /* uberIncome.png in Resources */ = {isa = PBXBuildFile; fileRef = 742AFA0C1BDC50380091DAB6 /* uberIncome.png */; };
+		742AFA0F1BDCE40C0091DAB6 /* VehicleExpensesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742AFA0E1BDCE40C0091DAB6 /* VehicleExpensesController.swift */; };
+		742AFA111BDCEE0F0091DAB6 /* LogbookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742AFA101BDCEE0F0091DAB6 /* LogbookController.swift */; };
+		742AFA131BDCEF610091DAB6 /* NoLogbookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742AFA121BDCEF610091DAB6 /* NoLogbookController.swift */; };
 		742C54161BDAD9BE00C6F412 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C54151BDAD9BE00C6F412 /* AppDelegate.swift */; };
 		742C54181BDAD9BE00C6F412 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C54171BDAD9BE00C6F412 /* ViewController.swift */; };
 		742C541B1BDAD9BE00C6F412 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 742C54191BDAD9BE00C6F412 /* Main.storyboard */; };
@@ -48,6 +51,9 @@
 		742AFA081BDC3B3E0091DAB6 /* BankAccountDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BankAccountDetailsController.swift; path = ../BankAccountDetailsController.swift; sourceTree = "<group>"; };
 		742AFA0A1BDC3C3D0091DAB6 /* UberIncomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UberIncomeController.swift; sourceTree = "<group>"; };
 		742AFA0C1BDC50380091DAB6 /* uberIncome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uberIncome.png; path = ../../../../Downloads/uberIncome.png; sourceTree = "<group>"; };
+		742AFA0E1BDCE40C0091DAB6 /* VehicleExpensesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleExpensesController.swift; sourceTree = "<group>"; };
+		742AFA101BDCEE0F0091DAB6 /* LogbookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogbookController.swift; sourceTree = "<group>"; };
+		742AFA121BDCEF610091DAB6 /* NoLogbookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoLogbookController.swift; sourceTree = "<group>"; };
 		742C54121BDAD9BE00C6F412 /* ubercalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ubercalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		742C54151BDAD9BE00C6F412 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		742C54171BDAD9BE00C6F412 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +97,7 @@
 		742C54091BDAD9BE00C6F412 = {
 			isa = PBXGroup;
 			children = (
+				742AFA0E1BDCE40C0091DAB6 /* VehicleExpensesController.swift */,
 				742C54141BDAD9BE00C6F412 /* ubercalculator */,
 				742C54291BDAD9BE00C6F412 /* ubercalculatorTests */,
 				742C54341BDAD9BE00C6F412 /* ubercalculatorUITests */,
@@ -115,6 +122,8 @@
 				742C54151BDAD9BE00C6F412 /* AppDelegate.swift */,
 				742C54171BDAD9BE00C6F412 /* ViewController.swift */,
 				742C54191BDAD9BE00C6F412 /* Main.storyboard */,
+				742AFA121BDCEF610091DAB6 /* NoLogbookController.swift */,
+				742AFA101BDCEE0F0091DAB6 /* LogbookController.swift */,
 				742AFA0A1BDC3C3D0091DAB6 /* UberIncomeController.swift */,
 				742AFA021BDC1E340091DAB6 /* BasDetailsController.swift */,
 				742AFA0C1BDC50380091DAB6 /* uberIncome.png */,
@@ -280,11 +289,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				742AFA131BDCEF610091DAB6 /* NoLogbookController.swift in Sources */,
 				742AFA0B1BDC3C3D0091DAB6 /* UberIncomeController.swift in Sources */,
 				742C54181BDAD9BE00C6F412 /* ViewController.swift in Sources */,
 				742AFA031BDC1E340091DAB6 /* BasDetailsController.swift in Sources */,
+				742AFA111BDCEE0F0091DAB6 /* LogbookController.swift in Sources */,
 				742C54161BDAD9BE00C6F412 /* AppDelegate.swift in Sources */,
 				742AFA091BDC3B3E0091DAB6 /* BankAccountDetailsController.swift in Sources */,
+				742AFA0F1BDCE40C0091DAB6 /* VehicleExpensesController.swift in Sources */,
 				742AFA011BDBB54C0091DAB6 /* NewCustomerDetailsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
