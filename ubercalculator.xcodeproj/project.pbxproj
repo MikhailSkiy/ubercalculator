@@ -24,6 +24,10 @@
 		742C54201BDAD9BE00C6F412 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 742C541E1BDAD9BE00C6F412 /* LaunchScreen.storyboard */; };
 		742C542B1BDAD9BE00C6F412 /* ubercalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C542A1BDAD9BE00C6F412 /* ubercalculatorTests.swift */; };
 		742C54361BDAD9BE00C6F412 /* ubercalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C54351BDAD9BE00C6F412 /* ubercalculatorUITests.swift */; };
+		748C6F561BDEB431003DA585 /* fleetcare.png in Resources */ = {isa = PBXBuildFile; fileRef = 748C6F551BDEB431003DA585 /* fleetcare.png */; };
+		748C6F581BDEB5A5003DA585 /* EstimateCarExpensesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C6F571BDEB5A5003DA585 /* EstimateCarExpensesController.swift */; };
+		748C6F5A1BDEB933003DA585 /* VehiclePurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C6F591BDEB933003DA585 /* VehiclePurchaseController.swift */; };
+		748C6F5C1BDECDE1003DA585 /* OtherExpensesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C6F5B1BDECDE1003DA585 /* OtherExpensesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		742C54311BDAD9BE00C6F412 /* ubercalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ubercalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		742C54351BDAD9BE00C6F412 /* ubercalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ubercalculatorUITests.swift; sourceTree = "<group>"; };
 		742C54371BDAD9BE00C6F412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		748C6F551BDEB431003DA585 /* fleetcare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fleetcare.png; path = ../../../../Downloads/fleetcare.png; sourceTree = "<group>"; };
+		748C6F571BDEB5A5003DA585 /* EstimateCarExpensesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstimateCarExpensesController.swift; sourceTree = "<group>"; };
+		748C6F591BDEB933003DA585 /* VehiclePurchaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclePurchaseController.swift; sourceTree = "<group>"; };
+		748C6F5B1BDECDE1003DA585 /* OtherExpensesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherExpensesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,10 +130,14 @@
 				742C54151BDAD9BE00C6F412 /* AppDelegate.swift */,
 				742C54171BDAD9BE00C6F412 /* ViewController.swift */,
 				742C54191BDAD9BE00C6F412 /* Main.storyboard */,
+				748C6F5B1BDECDE1003DA585 /* OtherExpensesController.swift */,
+				748C6F571BDEB5A5003DA585 /* EstimateCarExpensesController.swift */,
+				748C6F591BDEB933003DA585 /* VehiclePurchaseController.swift */,
 				742AFA121BDCEF610091DAB6 /* NoLogbookController.swift */,
 				742AFA101BDCEE0F0091DAB6 /* LogbookController.swift */,
 				742AFA0A1BDC3C3D0091DAB6 /* UberIncomeController.swift */,
 				742AFA021BDC1E340091DAB6 /* BasDetailsController.swift */,
+				748C6F551BDEB431003DA585 /* fleetcare.png */,
 				742AFA0C1BDC50380091DAB6 /* uberIncome.png */,
 				742AFA041BDC2B060091DAB6 /* 1.jpeg */,
 				742AFA061BDC2B110091DAB6 /* 23.jpeg */,
@@ -262,6 +274,7 @@
 				742C54201BDAD9BE00C6F412 /* LaunchScreen.storyboard in Resources */,
 				742AFA071BDC2B110091DAB6 /* 23.jpeg in Resources */,
 				742AFA0D1BDC50380091DAB6 /* uberIncome.png in Resources */,
+				748C6F561BDEB431003DA585 /* fleetcare.png in Resources */,
 				742C541D1BDAD9BE00C6F412 /* Assets.xcassets in Resources */,
 				742C541B1BDAD9BE00C6F412 /* Main.storyboard in Resources */,
 				742AFA051BDC2B060091DAB6 /* 1.jpeg in Resources */,
@@ -294,10 +307,13 @@
 				742C54181BDAD9BE00C6F412 /* ViewController.swift in Sources */,
 				742AFA031BDC1E340091DAB6 /* BasDetailsController.swift in Sources */,
 				742AFA111BDCEE0F0091DAB6 /* LogbookController.swift in Sources */,
+				748C6F5C1BDECDE1003DA585 /* OtherExpensesController.swift in Sources */,
+				748C6F5A1BDEB933003DA585 /* VehiclePurchaseController.swift in Sources */,
 				742C54161BDAD9BE00C6F412 /* AppDelegate.swift in Sources */,
 				742AFA091BDC3B3E0091DAB6 /* BankAccountDetailsController.swift in Sources */,
 				742AFA0F1BDCE40C0091DAB6 /* VehicleExpensesController.swift in Sources */,
 				742AFA011BDBB54C0091DAB6 /* NewCustomerDetailsController.swift in Sources */,
+				748C6F581BDEB5A5003DA585 /* EstimateCarExpensesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

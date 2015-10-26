@@ -10,4 +10,8 @@ import UIKit
 
 class LogbookController: UIViewController{
     
+    @IBAction func continueBtnPressed(sender: AnyObject) {
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("NoLogbookController") as? NoLogbookController
+        self.navigationController?.pushViewController(next!, animated: true)
+    }
 }
