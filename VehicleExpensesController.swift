@@ -60,13 +60,14 @@ class VehicleExpensesController: UIViewController{
     
     @IBAction func continueBtnChanged(sender: AnyObject) {
         if yesFlag {
+            SharingManager.sharedInstance.haveYouKeptLogbook = "Yes"
             let mapViewControllerObejct = self.storyboard?.instantiateViewControllerWithIdentifier("LogbookController") as? LogbookController
             self.navigationController?.pushViewController(mapViewControllerObejct!, animated: true)
             
         }
         
         if noFlag {
-            
+            SharingManager.sharedInstance.haveYouKeptLogbook = "No"
             let next = self.storyboard?.instantiateViewControllerWithIdentifier("NoLogbookController") as? NoLogbookController
             self.navigationController?.pushViewController(next!, animated: true)
             

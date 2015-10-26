@@ -979,6 +979,9 @@ Tally up your quarterly figures by going Earning &gt; View all Earnings &gt; (We
                                         <rect key="frame" x="126" y="1332" width="71" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Continue"/>
+                                        <connections>
+                                            <action selector="btnPressed:" destination="GDb-dq-pCi" eventType="touchUpInside" id="Bqv-Oq-0ef"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -994,6 +997,9 @@ Tally up your quarterly figures by going Earning &gt; View all Earnings &gt; (We
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1400"/>
+                    <connections>
+                        <outlet property="uberPercField" destination="Xg6-aI-PPI" id="gcf-tr-HjB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mwW-gF-UQG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1561,6 +1567,18 @@ Tally up your quarterly figures by going Earning &gt; View all Earnings &gt; (We
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1000"/>
+                    <connections>
+                        <outlet property="accBookField" destination="YzV-ik-q60" id="udw-nu-Zt5"/>
+                        <outlet property="fplField" destination="kWJ-8x-Iju" id="cHW-p2-puA"/>
+                        <outlet property="infoAboutOtherExpField" destination="6xa-sH-U8c" id="FkI-un-8Ps"/>
+                        <outlet property="itherExpField" destination="tVr-Lc-Des" id="ugO-vY-zGv"/>
+                        <outlet property="mobilePhonesBils" destination="1cR-OT-aFL" id="aRQ-FM-tME"/>
+                        <outlet property="parkingField" destination="fkF-mt-PXp" id="zkd-dn-Hgm"/>
+                        <outlet property="percOfPhoneForUberField" destination="46F-t8-a0B" id="do3-Zx-HVc"/>
+                        <outlet property="reiderSupField" destination="HqL-7L-88y" id="hRT-V2-nWa"/>
+                        <outlet property="stationaryField" destination="khc-zc-0Oe" id="jjr-DK-jn5"/>
+                        <outlet property="tollsField" destination="lDX-4c-PPd" id="8F8-e8-prB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uL0-bJ-upf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

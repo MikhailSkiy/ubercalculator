@@ -57,15 +57,26 @@ class EstimateCarExpensesController : UIViewController{
     }
     
     
+    func writeValues(){
+        SharingManager.sharedInstance.fuel =
+         SharingManager.sharedInstance.insurance =
+         SharingManager.sharedInstance.registration =
+         SharingManager.sharedInstance.repAndMaint =
+         SharingManager.sharedInstance.cleaning =
+    }
+    
     @IBAction func continueBtnPressed(sender: UIButton) {
+        writeValues()
+        
         if yesFlag {
+             SharingManager.sharedInstance.didYouPurchase = "Yes"
             let mapViewControllerObejct = self.storyboard?.instantiateViewControllerWithIdentifier("VehiclePurchaseController") as? VehiclePurchaseController
             self.navigationController?.pushViewController(mapViewControllerObejct!, animated: true)
             
         }
         
         if noFlag {
-            
+             SharingManager.sharedInstance.didYouPurchase = "No"
             let next = self.storyboard?.instantiateViewControllerWithIdentifier("OtherExpensesController") as? OtherExpensesController
             self.navigationController?.pushViewController(next!, animated: true)
             

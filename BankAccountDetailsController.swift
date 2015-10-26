@@ -19,7 +19,16 @@ class BankAccountDetailsController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func writeValues(){
+        SharingManager.sharedInstance.BSBNumber =
+        SharingManager.sharedInstance.bankAccountNumber =
+        SharingManager.sharedInstance.bankAccountName =
+    }
+    
     @IBAction func continueBtnPressed(sender: AnyObject) {
+        // Save all values in instance
+        writeValues()
+        
         let uberIncome = self.storyboard?.instantiateViewControllerWithIdentifier("UberIncomeController") as? UberIncomeController
         self.navigationController?.pushViewController(uberIncome!, animated: true)
     }

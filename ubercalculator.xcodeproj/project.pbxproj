@@ -28,6 +28,7 @@
 		748C6F581BDEB5A5003DA585 /* EstimateCarExpensesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C6F571BDEB5A5003DA585 /* EstimateCarExpensesController.swift */; };
 		748C6F5A1BDEB933003DA585 /* VehiclePurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C6F591BDEB933003DA585 /* VehiclePurchaseController.swift */; };
 		748C6F5C1BDECDE1003DA585 /* OtherExpensesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C6F5B1BDECDE1003DA585 /* OtherExpensesController.swift */; };
+		748C6F9A1BDEE125003DA585 /* SharingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C6F991BDEE125003DA585 /* SharingManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		748C6F571BDEB5A5003DA585 /* EstimateCarExpensesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstimateCarExpensesController.swift; sourceTree = "<group>"; };
 		748C6F591BDEB933003DA585 /* VehiclePurchaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclePurchaseController.swift; sourceTree = "<group>"; };
 		748C6F5B1BDECDE1003DA585 /* OtherExpensesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherExpensesController.swift; sourceTree = "<group>"; };
+		748C6F991BDEE125003DA585 /* SharingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				742C54151BDAD9BE00C6F412 /* AppDelegate.swift */,
 				742C54171BDAD9BE00C6F412 /* ViewController.swift */,
 				742C54191BDAD9BE00C6F412 /* Main.storyboard */,
+				748C6F991BDEE125003DA585 /* SharingManager.swift */,
 				748C6F5B1BDECDE1003DA585 /* OtherExpensesController.swift */,
 				748C6F571BDEB5A5003DA585 /* EstimateCarExpensesController.swift */,
 				748C6F591BDEB933003DA585 /* VehiclePurchaseController.swift */,
@@ -310,6 +313,7 @@
 				748C6F5C1BDECDE1003DA585 /* OtherExpensesController.swift in Sources */,
 				748C6F5A1BDEB933003DA585 /* VehiclePurchaseController.swift in Sources */,
 				742C54161BDAD9BE00C6F412 /* AppDelegate.swift in Sources */,
+				748C6F9A1BDEE125003DA585 /* SharingManager.swift in Sources */,
 				742AFA091BDC3B3E0091DAB6 /* BankAccountDetailsController.swift in Sources */,
 				742AFA0F1BDCE40C0091DAB6 /* VehicleExpensesController.swift in Sources */,
 				742AFA011BDBB54C0091DAB6 /* NewCustomerDetailsController.swift in Sources */,

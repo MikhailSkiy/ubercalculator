@@ -129,14 +129,22 @@ class BasDetailsController: UIViewController,UIPickerViewDataSource,UIPickerView
         turnOffYesBtn()
     }
     
+    func writeValue(){
+         SharingManager.sharedInstance.BASPeriod =
+         SharingManager.sharedInstance.ABN =
+         SharingManager.sharedInstance.TFN =
+    }
+    
     @IBAction func continueBtnPressed(sender: AnyObject) {
         //if !isAnyTextFieldsEmpty() {
         if yesFlag {
+            SharingManager.sharedInstance.refundFromATO = "Yes"
             let bankAccountDetails = self.storyboard?.instantiateViewControllerWithIdentifier("BankAccountDetailsController") as? BankAccountDetailsController
             self.navigationController?.pushViewController(bankAccountDetails!,animated: true)
         }
         
         if (noFlag){
+            SharingManager.sharedInstance.refundFromATO = "No"
             let uberIncome = self.storyboard?.instantiateViewControllerWithIdentifier("UberIncomeController") as? UberIncomeController
             self.navigationController?.pushViewController(uberIncome!, animated: true)
         }

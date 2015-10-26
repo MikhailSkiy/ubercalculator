@@ -20,7 +20,17 @@ class UberIncomeController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func writeValues(){
+        SharingManager.sharedInstance.grossFares =
+        SharingManager.sharedInstance.tolls =
+        SharingManager.sharedInstance.misc =
+        SharingManager.sharedInstance.otherIncome =
+        SharingManager.sharedInstance.detailsOfOtherIncome =
+    }
+    
     @IBAction func continueBtnPressed(sender: AnyObject) {
+        // Save all values
+        writeValues()
         let vehicleExpenses = self.storyboard?.instantiateViewControllerWithIdentifier("VehicleExpensesController") as? VehicleExpensesController
         self.navigationController?.pushViewController(vehicleExpenses!, animated: true)
         

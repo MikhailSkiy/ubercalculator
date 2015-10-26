@@ -80,8 +80,18 @@ class VehiclePurchaseController : ViewController {
     }
     
     
+    func writeValues(){
+        SharingManager.sharedInstance.purchaseOrSale =
+        SharingManager.sharedInstance.makeAndModel =
+        SharingManager.sharedInstance.purchasePrice
+        SharingManager.sharedInstance.salePrice =
+        SharingManager.sharedInstance.psDate =
+        
+    }
     
     @IBAction func cntBtnPressed(sender: AnyObject) {
+        writeValues()
+        
         let next = self.storyboard?.instantiateViewControllerWithIdentifier("OtherExpensesController") as? OtherExpensesController
         self.navigationController?.pushViewController(next!, animated: true)
         

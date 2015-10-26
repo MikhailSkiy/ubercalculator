@@ -11,6 +11,8 @@ import UIKit
 class LogbookController: UIViewController{
     
     @IBAction func continueBtnPressed(sender: AnyObject) {
+        SharingManager.sharedInstance.logbookPercentage =
+        
         let next = self.storyboard?.instantiateViewControllerWithIdentifier("NoLogbookController") as? NoLogbookController
         self.navigationController?.pushViewController(next!, animated: true)
     }

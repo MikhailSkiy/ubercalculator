@@ -72,8 +72,21 @@ class NewCustomerDetailsController: UIViewController, UIPickerViewDataSource,UIP
         
     }
     
+    func writeValue(){
+        SharingManager.sharedInstance.firstName =
+        SharingManager.sharedInstance.lastName =
+         SharingManager.sharedInstance.businessName
+         SharingManager.sharedInstance.dateOfBirth =
+         SharingManager.sharedInstance.residentialAddress =
+         SharingManager.sharedInstance.city =
+         SharingManager.sharedInstance.state =
+         SharingManager.sharedInstance.postcode =
+        
+    }
+    
     @IBAction func continueBtnPressed(sender: UIButton) {
         // TODO Check that fields are not empty
+        
         let next = self.storyboard?.instantiateViewControllerWithIdentifier("BasDetailsController") as? BasDetailsController
         self.navigationController?.pushViewController(next!, animated: true)
         

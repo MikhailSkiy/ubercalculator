@@ -68,11 +68,13 @@ class ViewController: UIViewController {
 
     @IBAction func continueBtnPressed(sender: UIButton) {
         if (isNewCustomer){
+            SharingManager.sharedInstance.cloudBookkeepingClient = "New Customer"
             let mapViewControllerObejct = self.storyboard?.instantiateViewControllerWithIdentifier("NewCustomerDetailsController") as? NewCustomerDetailsController
             self.navigationController?.pushViewController(mapViewControllerObejct!, animated: true)
         }
         
         if (isExistingCustomer){
+            SharingManager.sharedInstance.cloudBookkeepingClient = "Existing Customer"
             let next = self.storyboard?.instantiateViewControllerWithIdentifier("BasDetailsController") as? BasDetailsController
             self.navigationController?.pushViewController(next!, animated: true)
         }
