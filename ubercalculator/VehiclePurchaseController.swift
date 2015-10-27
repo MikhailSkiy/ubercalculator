@@ -13,6 +13,11 @@ class VehiclePurchaseController : ViewController {
     @IBOutlet weak var noBtn: UIButton!
     @IBOutlet weak var purchaseOrSaleDate: UITextField!
     
+    @IBOutlet weak var makeAndModel: UITextField!
+    @IBOutlet weak var purchPrice: UITextField!
+    @IBOutlet weak var salePriceField: UITextField!
+    @IBOutlet weak var psDateField: UITextField!
+    
     var purchaseFlag = false
     var sellFlag = false
    
@@ -73,19 +78,25 @@ class VehiclePurchaseController : ViewController {
     
     func datePickerValueChanged(sender:UIDatePicker) {
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+  
         purchaseOrSaleDate.text = dateFormatter.stringFromDate(sender.date)
         
     }
     
-    
     func writeValues(){
-        SharingManager.sharedInstance.purchaseOrSale =
-        SharingManager.sharedInstance.makeAndModel =
-        SharingManager.sharedInstance.purchasePrice
-        SharingManager.sharedInstance.salePrice =
-        SharingManager.sharedInstance.psDate =
+        
+        if purchaseFlag {
+            SharingManager.sharedInstance.purchaseOrSale = "Purchase"
+        }
+        if sellFlag {
+            SharingManager.sharedInstance.salePrice = "Sale"
+        }
+ 
+        SharingManager.sharedInstance.makeAndModel = makeAndModel.text!
+        SharingManager.sharedInstance.purchasePrice = purchPrice.text!
+        SharingManager.sharedInstance.salePrice = salePriceField.text!
+        SharingManager.sharedInstance.psDate = psDateField.text!
         
     }
     

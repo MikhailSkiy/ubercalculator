@@ -148,16 +148,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ubercalculator/UberIncomeController.swift"
-            timestampString = "467422977.30386"
+            filePath = "ubercalculator/LogbookController.swift"
+            timestampString = "467668304.333241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "didReceiveMemoryWarning()"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "continueBtnPressed(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -167,13 +167,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ubercalculator/UberIncomeController.swift"
-            timestampString = "467467441.14004"
+            filePath = "ubercalculator/OtherExpensesController.swift"
+            timestampString = "467678593.673129"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "continueBtnPressed(_:)"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "writeValues()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

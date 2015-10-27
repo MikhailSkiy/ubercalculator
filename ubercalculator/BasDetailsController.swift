@@ -130,13 +130,16 @@ class BasDetailsController: UIViewController,UIPickerViewDataSource,UIPickerView
     }
     
     func writeValue(){
-         SharingManager.sharedInstance.BASPeriod =
-         SharingManager.sharedInstance.ABN =
-         SharingManager.sharedInstance.TFN =
+         SharingManager.sharedInstance.BASPeriod = BasPeriodTextField.text!
+         SharingManager.sharedInstance.ABN = ABNTextField.text!
+         SharingManager.sharedInstance.TFN = TFNTextField.text!
     }
     
     @IBAction func continueBtnPressed(sender: AnyObject) {
-        //if !isAnyTextFieldsEmpty() {
+        if !isAnyTextFieldsEmpty() {
+            // save values
+            writeValue()
+            
         if yesFlag {
             SharingManager.sharedInstance.refundFromATO = "Yes"
             let bankAccountDetails = self.storyboard?.instantiateViewControllerWithIdentifier("BankAccountDetailsController") as? BankAccountDetailsController
@@ -148,7 +151,7 @@ class BasDetailsController: UIViewController,UIPickerViewDataSource,UIPickerView
             let uberIncome = self.storyboard?.instantiateViewControllerWithIdentifier("UberIncomeController") as? UberIncomeController
             self.navigationController?.pushViewController(uberIncome!, animated: true)
         }
-    //}
+    }
     }
 
  

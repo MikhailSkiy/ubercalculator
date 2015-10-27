@@ -15,6 +15,21 @@ class EstimateCarExpensesController : UIViewController{
     var yesFlag = false
     var noFlag = false
     
+    @IBOutlet weak var fuelField: UITextField!
+    @IBOutlet weak var insField: UITextField!
+    @IBOutlet weak var regField: UITextField!
+    @IBOutlet weak var repAndMaint: UITextField!
+    @IBOutlet weak var cleaningField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     func turnOffNoBtn(){
         noFlag = false
@@ -58,11 +73,11 @@ class EstimateCarExpensesController : UIViewController{
     
     
     func writeValues(){
-        SharingManager.sharedInstance.fuel =
-         SharingManager.sharedInstance.insurance =
-         SharingManager.sharedInstance.registration =
-         SharingManager.sharedInstance.repAndMaint =
-         SharingManager.sharedInstance.cleaning =
+        SharingManager.sharedInstance.fuel = fuelField.text!
+         SharingManager.sharedInstance.insurance = insField.text!
+         SharingManager.sharedInstance.registration = regField.text!
+         SharingManager.sharedInstance.repAndMaint = repAndMaint.text!
+         SharingManager.sharedInstance.cleaning = cleaningField.text!
     }
     
     @IBAction func continueBtnPressed(sender: UIButton) {

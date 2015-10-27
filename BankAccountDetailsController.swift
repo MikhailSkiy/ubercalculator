@@ -9,6 +9,10 @@ import UIKit
 
 class BankAccountDetailsController: UIViewController {
     
+    @IBOutlet weak var BSBNumberField: UITextField!
+    @IBOutlet weak var BankAccountNumField: UITextField!
+    @IBOutlet weak var BankAcNameField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,9 +24,9 @@ class BankAccountDetailsController: UIViewController {
     }
     
     func writeValues(){
-        SharingManager.sharedInstance.BSBNumber =
-        SharingManager.sharedInstance.bankAccountNumber =
-        SharingManager.sharedInstance.bankAccountName =
+        SharingManager.sharedInstance.BSBNumber = BSBNumberField.text!
+        SharingManager.sharedInstance.bankAccountNumber = BankAccountNumField.text!
+        SharingManager.sharedInstance.bankAccountName = BankAcNameField.text!
     }
     
     @IBAction func continueBtnPressed(sender: AnyObject) {
