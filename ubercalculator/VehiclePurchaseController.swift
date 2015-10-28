@@ -82,6 +82,17 @@ class VehiclePurchaseController : ViewController {
   
         purchaseOrSaleDate.text = dateFormatter.stringFromDate(sender.date)
         
+        
+        let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: sender.date)
+        let day = components.day
+        let month = components.month
+        let year = components.year
+        
+        SharingManager.sharedInstance.psDateDay = day.description
+        SharingManager.sharedInstance.psDateMonth = month.description
+        SharingManager.sharedInstance.psDateYear = year.description
+
+        
     }
     
     func writeValues(){
@@ -96,7 +107,6 @@ class VehiclePurchaseController : ViewController {
         SharingManager.sharedInstance.makeAndModel = makeAndModel.text!
         SharingManager.sharedInstance.purchasePrice = purchPrice.text!
         SharingManager.sharedInstance.salePrice = salePriceField.text!
-        SharingManager.sharedInstance.psDate = psDateField.text!
         
     }
     

@@ -87,8 +87,22 @@ class NewCustomerDetailsController: UIViewController, UIPickerViewDataSource,UIP
 //        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
+        
+   
+ 
  
         birthdayTextField.text = dateFormatter.stringFromDate(sender.date)
+        //var date = dateFormatter.stringFromDate(sender.date)
+        
+        let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: sender.date)
+        let day = components.day
+        let month = components.month
+        let year = components.year
+        
+        SharingManager.sharedInstance.dateOfBirthDay = day.description
+        SharingManager.sharedInstance.dateOfBirthMonth = month.description
+        SharingManager.sharedInstance.dateOfBirthYear = year.description
+        
         
     }
     

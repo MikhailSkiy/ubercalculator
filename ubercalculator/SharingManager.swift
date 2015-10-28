@@ -16,6 +16,9 @@ class SharingManager {
     var lastName : String = ""
     var businessName : String = ""
     var dateOfBirth : String = ""
+    var dateOfBirthDay : String = ""
+    var dateOfBirthMonth : String = ""
+    var dateOfBirthYear : String = ""
     var residentialAddress : String = ""
     var city : String = ""
     var state : String = ""
@@ -61,7 +64,10 @@ class SharingManager {
     var makeAndModel = ""
     var purchasePrice = ""
     var salePrice = ""
-    var psDate = ""
+
+    var psDateDay = ""
+    var psDateMonth = ""
+    var psDateYear = ""
     
     // 10 Other expenses
     var mobilePhoneBills = ""
