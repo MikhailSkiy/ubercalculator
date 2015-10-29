@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewCustomerDetailsController: UIViewController, UIPickerViewDataSource,UIPickerViewDelegate {
+class NewCustomerDetailsController: UIViewController, UIPickerViewDataSource,UIPickerViewDelegate, UITextFieldDelegate {
     
     var statesArray = ["Queensland",
         "New South Wales",
@@ -19,6 +19,7 @@ class NewCustomerDetailsController: UIViewController, UIPickerViewDataSource,UIP
          "Australian Capital Territory",
          "Northern Territory"
     ]
+    @IBOutlet weak var postCodeRangeAlert: UILabel!
     @IBOutlet weak var nameAlert: UILabel!
     @IBOutlet weak var lastNameAlert: UILabel!
     @IBOutlet weak var birthDateAlert: UILabel!
@@ -28,6 +29,7 @@ class NewCustomerDetailsController: UIViewController, UIPickerViewDataSource,UIP
     @IBOutlet weak var postcodeAlert: UILabel!
     
     
+    @IBOutlet weak var myScroll: UIScrollView!
     
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
@@ -179,6 +181,17 @@ class NewCustomerDetailsController: UIViewController, UIPickerViewDataSource,UIP
         }
     }
     
+    func isPostCodeLess()->Bool{
+        let guess:Int? = Int(postcodeField.text!)
+        if (guess > 999) && (guess < 10000) {
+            postCodeRangeAlert.hidden = true
+            return false
+        } else {
+             postCodeRangeAlert.hidden = false
+            return true
+        }
+    }
+    
     func isFieldsEmpty()->Bool{
         if isNameEmpty() ||
             isLastNameEmpty() ||
@@ -186,7 +199,7 @@ class NewCustomerDetailsController: UIViewController, UIPickerViewDataSource,UIP
             isResAddrEmpty() ||
         isCityEmpty() ||
         isStateEmpty() ||
-            isPostcodeEmpty() {
+            isPostcodeEmpty() || isPostCodeLess() {
                 return true
         } else {
             return false
@@ -196,10 +209,7 @@ class NewCustomerDetailsController: UIViewController, UIPickerViewDataSource,UIP
     
     func writeValue(){
         // Check is there current page was selected
-        if let textRange = SharingManager.sharedInstance.pageHistory.rangeOfString(pageNumber){
-        } else {
-            SharingManager.sharedInstance.pageHistory = SharingManager.sharedInstance.pageHistory + "," + pageNumber
-        }
+     SharingManager.sharedInstance.addToPageHistory(pageNumber)
         
         SharingManager.sharedInstance.firstName = firstNameField.text!
             SharingManager.sharedInstance.lastName = lastNameField.text!
@@ -211,6 +221,19 @@ class NewCustomerDetailsController: UIViewController, UIPickerViewDataSource,UIP
             SharingManager.sharedInstance.postcode = postcodeField.text!
         
     }
+    
+    @IBAction func userTappedBackground(sender: AnyObject) {
+        view.endEditing(true)
+    }
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+    }
+    
+  
     
     @IBAction func continueBtnPressed(sender: UIButton) {
         // if all necessary fields not empty

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class OtherExpensesController : UIViewController{
+class OtherExpensesController : UIViewController,UITextFieldDelegate{
     
     @IBOutlet weak var mobilePhonesBils: UITextField!
     @IBOutlet weak var percOfPhoneForUberField: UITextField!
@@ -22,6 +22,8 @@ class OtherExpensesController : UIViewController{
     
     var session: NSURLSession!
     var pageNumber = "12"
+    
+    @IBOutlet weak var myScroll: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +57,12 @@ class OtherExpensesController : UIViewController{
     SharingManager.sharedInstance.informationAboutOtherExp = infoAboutOtherExpField.text!
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+    }
+    
     @IBAction func submit(sender: AnyObject) {
        writeValues()
         
@@ -63,6 +71,57 @@ class OtherExpensesController : UIViewController{
         /* 2. Build the URL */
         
 //        rowName != nil ?rowName!.stringFromCamelCase():""
+        
+        let postString = "entry.305535962=" + SharingManager.sharedInstance.cloudBookkeepingClient +
+            "&entry.1848046591=" + SharingManager.sharedInstance.firstName +
+            "&entry.1053817752=" + SharingManager.sharedInstance.lastName +
+            "&entry.526969259=" + SharingManager.sharedInstance.businessName +
+            "&entry.1830506018_day=" + SharingManager.sharedInstance.dateOfBirthDay +
+            "&entry.1830506018_month=" + SharingManager.sharedInstance.dateOfBirthMonth +
+            "&entry.1830506018_year=" + SharingManager.sharedInstance.dateOfBirthYear +
+            "&entry.40993945=" + SharingManager.sharedInstance.residentialAddress +
+            "&entry.1699005318=" + SharingManager.sharedInstance.city +
+            "&entry.220931772=" + SharingManager.sharedInstance.state +
+            "&entry.1511034802=" + SharingManager.sharedInstance.postcode +
+            "&entry.1157536828=" + SharingManager.sharedInstance.BASPeriod +
+            "&entry.1222593284=" + SharingManager.sharedInstance.ABN +
+            "&entry.719071380=" + SharingManager.sharedInstance.TFN +
+            "&entry.2124799098=" + SharingManager.sharedInstance.refundFromATO +
+            "&entry.1616077229=" + SharingManager.sharedInstance.BSBNumber +
+            "&entry.1379182776=" + SharingManager.sharedInstance.bankAccountNumber +
+            "&entry.480367925=" + SharingManager.sharedInstance.bankAccountName +
+            "&entry.221947356=" + SharingManager.sharedInstance.grossFares +
+            "&entry.854893634=" + SharingManager.sharedInstance.tolls +
+            "&entry.1773887307=" + SharingManager.sharedInstance.misc +
+            "&entry.853980785=" + SharingManager.sharedInstance.otherIncome +
+            "&entry.1222003851=" + SharingManager.sharedInstance.detailsOfOtherIncome +
+            "&entry.1223010405=" + SharingManager.sharedInstance.haveYouKeptLogbook +
+            "&entry.61720861=" + SharingManager.sharedInstance.logbookPercentage +
+            "&entry.2065554579=" + SharingManager.sharedInstance.uberUsePercentage +
+            "&entry.875276628=" + SharingManager.sharedInstance.fuel +
+            "&entry.1370939415=" + SharingManager.sharedInstance.insurance +
+            "&entry.2104943261=" + SharingManager.sharedInstance.registration +
+            "&entry.449118661=" + SharingManager.sharedInstance.repAndMaint +
+            "&entry.221122234=" + SharingManager.sharedInstance.cleaning +
+            "&entry.427560732=" + SharingManager.sharedInstance.didYouPurchase +
+            "&entry.1976809337=" + SharingManager.sharedInstance.purchaseOrSale +
+            "&entry.1360019636=" + SharingManager.sharedInstance.makeAndModel +
+            "&entry.152351604=" + SharingManager.sharedInstance.purchasePrice +
+            "&entry.1502227971=" + SharingManager.sharedInstance.salePrice +
+            "&entry.422488942_day=" + SharingManager.sharedInstance.psDateDay +
+            "&entry.422488942_month=" + SharingManager.sharedInstance.psDateMonth +
+            "&entry.422488942_year=" + SharingManager.sharedInstance.psDateYear +
+            "&entry.172170058=" + SharingManager.sharedInstance.mobilePhoneBills +
+            "&entry.997683223=" + SharingManager.sharedInstance.percOfPhoneForUber +
+            "&entry.1186702389=" + SharingManager.sharedInstance.accBook +
+            "&entry.1663564460=" + SharingManager.sharedInstance.fpl +
+            "&entry.746235210=" + SharingManager.sharedInstance.parking +
+            "&entry.380323467=" + SharingManager.sharedInstance.riderSup +
+            "&entry.1745492218=" + SharingManager.sharedInstance.stationaryAndOffice +
+            "&entry.1380261086=" + SharingManager.sharedInstance.tollsOther +
+            "&entry.202447478=" + SharingManager.sharedInstance.otherExp +
+            "&entry.1355699792=" + SharingManager.sharedInstance.informationAboutOtherExp +
+            "&pageHistory=" + SharingManager.sharedInstance.pageHistory
         
         let urlString = "https://docs.google.com/forms/d/1wkl4wwmYcWhB_CcVUC3DLACXcfgXlavohrpdafUwL_M/formResponse?entry.305535962=" + SharingManager.sharedInstance.cloudBookkeepingClient +
             "&entry.1848046591=" + SharingManager.sharedInstance.firstName +
@@ -103,7 +162,6 @@ class OtherExpensesController : UIViewController{
             "&entry.422488942_day=" + SharingManager.sharedInstance.psDateDay +
             "&entry.422488942_month=" + SharingManager.sharedInstance.psDateMonth +
             "&entry.422488942_year=" + SharingManager.sharedInstance.psDateYear +
-            
          "&entry.172170058=" + SharingManager.sharedInstance.mobilePhoneBills +
             "&entry.997683223=" + SharingManager.sharedInstance.percOfPhoneForUber +
         "&entry.1186702389=" + SharingManager.sharedInstance.accBook +
@@ -115,31 +173,65 @@ class OtherExpensesController : UIViewController{
              "&entry.202447478=" + SharingManager.sharedInstance.otherExp +
             "&entry.1355699792=" + SharingManager.sharedInstance.informationAboutOtherExp +
             "&pageHistory=" + SharingManager.sharedInstance.pageHistory +
-            "&submit=Submit"
+            "&submit=Submit/"
         
         //let url = NSURL(string: urlString)
         
         /* 3. Configure the request */
-         let url = NSURL(string: urlString)!
-        let request = NSMutableURLRequest(URL: url)
-        
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         
-        /* 4. Make the request */
-        let task = session.dataTaskWithRequest(request) {data, response, downloadError in
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://docs.google.com/forms/d/1wkl4wwmYcWhB_CcVUC3DLACXcfgXlavohrpdafUwL_M/formResponse")!)
+        request.HTTPMethod = "POST"
+     
+        
+        
+        
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
             
-            if let error = downloadError {
-                print("Could not complete the request \(error)")
-            } else {
-                
+            if error != nil {
+                print("error=\(error)")
+                return
             }
+            
+            print("response = \(response)")
+            
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString)")
         }
-        
-        /* 7. Start the request */
         task.resume()
-
         
+//        if var escapedURLString = urlString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()) {
+//           NSURL(string: escapedURLString)
+//        
+//        
+//       
+//        
+//         let url = NSURL(string:escapedURLString)
+//        
+//       //  let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+//        let request = NSMutableURLRequest(URL: url!)
+//        
+//        request.addValue("application/json", forHTTPHeaderField: "Accept")
+//        
+//        
+//        /* 4. Make the request */
+//        let task = session.dataTaskWithRequest(request) {data, response, downloadError in
+//            
+//            if let error = downloadError {
+//                print("Could not complete the request \(error)")
+//            } else {
+//                
+//            }
+//        }
+//        
+//        /* 7. Start the request */
+//        task.resume()
+//        }
     }
+    
+        
+    
     
 }

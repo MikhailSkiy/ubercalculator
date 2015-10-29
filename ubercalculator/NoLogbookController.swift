@@ -8,10 +8,16 @@
 
 import UIKit
 
-class NoLogbookController: UIViewController{
+class NoLogbookController: UIViewController,UITextFieldDelegate{
     
+    @IBOutlet weak var myScroll: UIScrollView!
     @IBOutlet weak var percText: UITextField!
     var pageNumber = "9,"
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
     @IBAction func cntPresd(sender: AnyObject) {
         

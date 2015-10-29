@@ -10,6 +10,7 @@ import UIKit
 
 class UberIncomeController: UIViewController {
     
+    @IBOutlet weak var myScroll: UIScrollView!
     @IBOutlet weak var grosFaresField: UITextField!
     @IBOutlet weak var tollsField: UITextField!
     @IBOutlet weak var miscField: UITextField!
@@ -35,6 +36,17 @@ class UberIncomeController: UIViewController {
         SharingManager.sharedInstance.otherIncome = otherIncomeField.text!
         SharingManager.sharedInstance.detailsOfOtherIncome = detailsOfOtherIncome.text!
     }
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
+
+    
     
     @IBAction func continueBtnPressed(sender: AnyObject) {
         // Save all values

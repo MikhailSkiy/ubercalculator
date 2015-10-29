@@ -8,13 +8,14 @@
 
 import UIKit
 
-class BasDetailsController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
+class BasDetailsController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate {
     
     var periodArr = ["Jul - Sept 2015",
     "Oct - Dec 2015",
     "Jan - Mar 2016",
     "Apr - Jun 2016"]
     
+    @IBOutlet weak var myScroll: UIScrollView!
     @IBOutlet weak var BasPeriodTextField: UITextField!
     @IBOutlet weak var ABNTextField: UITextField!
     @IBOutlet weak var TFNTextField: UITextField!
@@ -138,6 +139,21 @@ class BasDetailsController: UIViewController,UIPickerViewDataSource,UIPickerView
          SharingManager.sharedInstance.BASPeriod = BasPeriodTextField.text!
          SharingManager.sharedInstance.ABN = ABNTextField.text!
          SharingManager.sharedInstance.TFN = TFNTextField.text!
+    }
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        myScroll.setContentOffset(CGPointMake(0,250), animated: true)
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        myScroll.setContentOffset(CGPointMake(0,0), animated: true)
     }
     
     @IBAction func continueBtnPressed(sender: AnyObject) {

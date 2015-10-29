@@ -13,6 +13,7 @@ class BankAccountDetailsController: UIViewController {
     @IBOutlet weak var BankAccountNumField: UITextField!
     @IBOutlet weak var BankAcNameField: UITextField!
     
+    @IBOutlet weak var myScroll: UIScrollView!
     let pageNumber="5,"
     
     override func viewDidLoad() {
@@ -30,6 +31,21 @@ class BankAccountDetailsController: UIViewController {
         SharingManager.sharedInstance.BSBNumber = BSBNumberField.text!
         SharingManager.sharedInstance.bankAccountNumber = BankAccountNumField.text!
         SharingManager.sharedInstance.bankAccountName = BankAcNameField.text!
+    }
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        myScroll.setContentOffset(CGPointMake(0,250), animated: true)
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        myScroll.setContentOffset(CGPointMake(0,0), animated: true)
     }
     
     @IBAction func continueBtnPressed(sender: AnyObject) {
