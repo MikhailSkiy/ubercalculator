@@ -1,27 +1,29 @@
 //
-//  VehiclePurchaseController.swift
+//  LastController.swift
 //  ubercalculator
 //
-//  Created by Михаил Валуйский on 26.10.15.
+//  Created by Михаил Валуйский on 29.10.15.
 //  Copyright © 2015 Михаил Валуйский. All rights reserved.
 //
 
 import UIKit
-class VehiclePurchaseController : UIViewController {
+
+class LastController : UIViewController {
     
-    @IBOutlet weak var yesBtn: UIButton!
-    @IBOutlet weak var noBtn: UIButton!
-    @IBOutlet weak var purchaseOrSaleDate: UITextField!
     
-    @IBOutlet weak var makeAndModel: UITextField!
-    @IBOutlet weak var purchPrice: UITextField!
-    @IBOutlet weak var salePriceField: UITextField!
-    @IBOutlet weak var psDateField: UITextField!
+    @IBOutlet weak var makeModelField: UITextField!
+    @IBOutlet weak var purchasePriceField: UITextField!
+    @IBOutlet weak var salePrice: UITextField!
+    @IBOutlet weak var purchaseSaleDateField: UITextField!
     
     var purchaseFlag = false
-    var sellFlag = false
+    var saleFlag = false
     
-   var pageNumber = "11,"
+    var pageNumber = "11,"
+    
+    @IBOutlet weak var purchaseBtn: UIButton!
+    
+    @IBOutlet weak var saleBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,52 +34,51 @@ class VehiclePurchaseController : UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-   
     
     func turnOffPurchaseBtn(){
         purchaseFlag = false
         let unchecked = UIImage(named:"unchecked")
-        yesBtn.setImage(unchecked, forState: .Normal)
+       purchaseBtn.setImage(unchecked, forState: .Normal)
     }
     
     
     func turnOffSellBtn(){
-        sellFlag = false
+        saleFlag = false
         let unchecked = UIImage(named:"unchecked")
-        noBtn.setImage(unchecked, forState: .Normal)
+       saleBtn.setImage(unchecked, forState: .Normal)
     }
     
-    
-    @IBAction func purchaseBtnChanged(sender: UIButton) {
+    @IBAction func purchaseBtnChanged(sender: AnyObject) {
         if (purchaseFlag){
             let uncheckedImage = UIImage(named: "unchecked")
-            yesBtn.setImage(uncheckedImage, forState: .Normal)
+            purchaseBtn.setImage(uncheckedImage, forState: .Normal)
             purchaseFlag = false
         } else {
             let checked = UIImage(named: "checked")
-            yesBtn.setImage(checked, forState: .Normal)
+            purchaseBtn.setImage(checked, forState: .Normal)
             purchaseFlag = true
         }
         turnOffSellBtn()
     }
     
     
-   
-    
-    @IBAction func sellBtnChanged(sender: UIButton) {
-        if  sellFlag {
+    @IBAction func saleBtnChanged(sender: AnyObject) {
+        if  saleFlag {
             let uncheckedImage = UIImage(named:"unchecked")
-            noBtn.setImage(uncheckedImage,forState: .Normal)
-            sellFlag = false
+            saleBtn.setImage(uncheckedImage,forState: .Normal)
+            saleFlag = false
         } else {
             let checked = UIImage(named:"checked")
-            noBtn.setImage(checked, forState: .Normal)
-            sellFlag = true
+            saleBtn.setImage(checked, forState: .Normal)
+            saleFlag = true
         }
-        turnOffPurchaseBtn()
+        turnOffPurchaseBtn()        
     }
     
-    @IBAction func purchaseOrSaleEditing(sender: UITextField) {
+    
+    
+    
+    @IBAction func pOrSDateEditing(sender: UITextField) {
         let datePickerView:UIDatePicker = UIDatePicker()
         
         datePickerView.datePickerMode = UIDatePickerMode.Date
@@ -85,14 +86,14 @@ class VehiclePurchaseController : UIViewController {
         sender.inputView = datePickerView
         
         datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
-        
     }
+   
     
     func datePickerValueChanged(sender:UIDatePicker) {
         let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "dd/MM/yyyy"
-  
-        purchaseOrSaleDate.text = dateFormatter.stringFromDate(sender.date)
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        
+        purchaseSaleDateField.text = dateFormatter.stringFromDate(sender.date)
         
         
         let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: sender.date)
@@ -103,7 +104,7 @@ class VehiclePurchaseController : UIViewController {
         SharingManager.sharedInstance.psDateDay = day.description
         SharingManager.sharedInstance.psDateMonth = month.description
         SharingManager.sharedInstance.psDateYear = year.description
-
+        
         
     }
     
@@ -114,28 +115,22 @@ class VehiclePurchaseController : UIViewController {
         if purchaseFlag {
             SharingManager.sharedInstance.purchaseOrSale = "Purchase"
         }
-        if sellFlag {
+        if saleFlag {
             SharingManager.sharedInstance.salePrice = "Sale"
         }
- 
-        SharingManager.sharedInstance.makeAndModel = makeAndModel.text!
-        SharingManager.sharedInstance.purchasePrice = purchPrice.text!
-        SharingManager.sharedInstance.salePrice = salePriceField.text!
+        
+        SharingManager.sharedInstance.makeAndModel = makeModelField.text!
+        SharingManager.sharedInstance.purchasePrice = purchasePriceField.text!
+        SharingManager.sharedInstance.salePrice = purchaseSaleDateField.text!
         
     }
     
-    @IBAction func cntBtnPressed(sender: AnyObject) {
-        writeValues()
+    @IBAction func goToNextController(sender: AnyObject) {
+        
+            writeValues()
         
         let next = self.storyboard?.instantiateViewControllerWithIdentifier("OtherExpensesController") as? OtherExpensesController
         self.navigationController?.pushViewController(next!, animated: true)
-        
-//        
-//        let next = self.storyboard?.instantiateViewControllerWithIdentifier("LastController") as? LastController
-//        self.navigationController?.pushViewController(next!, animated: true)
-        
     }
- 
-    
     
 }

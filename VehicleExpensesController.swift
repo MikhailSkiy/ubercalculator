@@ -16,6 +16,8 @@ class VehicleExpensesController: UIViewController{
     var yesFlag = false
     var noFlag = false
     
+    let pageNumber = "7,"
+    
     func turnOffNoBtn(){
         noFlag = false
         let unchecked = UIImage(named:"unchecked")
@@ -59,6 +61,7 @@ class VehicleExpensesController: UIViewController{
 
     
     @IBAction func continueBtnChanged(sender: AnyObject) {
+        SharingManager.sharedInstance.addToPageHistory(pageNumber)
         if yesFlag {
             SharingManager.sharedInstance.haveYouKeptLogbook = "Yes"
             let mapViewControllerObejct = self.storyboard?.instantiateViewControllerWithIdentifier("LogbookController") as? LogbookController

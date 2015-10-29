@@ -21,6 +21,8 @@ class EstimateCarExpensesController : UIViewController{
     @IBOutlet weak var repAndMaint: UITextField!
     @IBOutlet weak var cleaningField: UITextField!
     
+    var pageNumber = "10,"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -73,6 +75,7 @@ class EstimateCarExpensesController : UIViewController{
     
     
     func writeValues(){
+        SharingManager.sharedInstance.addToPageHistory(pageNumber)
         SharingManager.sharedInstance.fuel = fuelField.text!
          SharingManager.sharedInstance.insurance = insField.text!
          SharingManager.sharedInstance.registration = regField.text!
@@ -85,8 +88,13 @@ class EstimateCarExpensesController : UIViewController{
         
         if yesFlag {
              SharingManager.sharedInstance.didYouPurchase = "Yes"
-            let mapViewControllerObejct = self.storyboard?.instantiateViewControllerWithIdentifier("VehiclePurchaseController") as? VehiclePurchaseController
-            self.navigationController?.pushViewController(mapViewControllerObejct!, animated: true)
+            
+//            
+//            let mapViewControllerObejct = self.storyboard?.instantiateViewControllerWithIdentifier("VehiclePurchaseController") as? VehiclePurchaseController
+//            self.navigationController?.pushViewController(mapViewControllerObejct!, animated: true)
+            
+                  let next = self.storyboard?.instantiateViewControllerWithIdentifier("LastController") as? LastController
+                   self.navigationController?.pushViewController(next!, animated: true)
             
         }
         

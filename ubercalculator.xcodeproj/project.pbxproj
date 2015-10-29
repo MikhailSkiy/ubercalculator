@@ -29,6 +29,7 @@
 		748C6F5A1BDEB933003DA585 /* VehiclePurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C6F591BDEB933003DA585 /* VehiclePurchaseController.swift */; };
 		748C6F5C1BDECDE1003DA585 /* OtherExpensesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C6F5B1BDECDE1003DA585 /* OtherExpensesController.swift */; };
 		748C6F9A1BDEE125003DA585 /* SharingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C6F991BDEE125003DA585 /* SharingManager.swift */; };
+		74F423B91BE2929500CF0772 /* LastController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F423B81BE2929500CF0772 /* LastController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		748C6F591BDEB933003DA585 /* VehiclePurchaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclePurchaseController.swift; sourceTree = "<group>"; };
 		748C6F5B1BDECDE1003DA585 /* OtherExpensesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherExpensesController.swift; sourceTree = "<group>"; };
 		748C6F991BDEE125003DA585 /* SharingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingManager.swift; sourceTree = "<group>"; };
+		74F423B81BE2929500CF0772 /* LastController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				742C54151BDAD9BE00C6F412 /* AppDelegate.swift */,
 				742C54171BDAD9BE00C6F412 /* ViewController.swift */,
 				742C54191BDAD9BE00C6F412 /* Main.storyboard */,
+				74F423B81BE2929500CF0772 /* LastController.swift */,
 				748C6F991BDEE125003DA585 /* SharingManager.swift */,
 				748C6F5B1BDECDE1003DA585 /* OtherExpensesController.swift */,
 				748C6F571BDEB5A5003DA585 /* EstimateCarExpensesController.swift */,
@@ -307,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				742AFA131BDCEF610091DAB6 /* NoLogbookController.swift in Sources */,
+				74F423B91BE2929500CF0772 /* LastController.swift in Sources */,
 				742AFA0B1BDC3C3D0091DAB6 /* UberIncomeController.swift in Sources */,
 				742C54181BDAD9BE00C6F412 /* ViewController.swift in Sources */,
 				742AFA031BDC1E340091DAB6 /* BasDetailsController.swift in Sources */,

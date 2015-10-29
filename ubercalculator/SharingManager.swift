@@ -9,6 +9,8 @@
 class SharingManager {
     static let sharedInstance = SharingManager()
     
+    var pageHistory = ""
+    
     // 1st viewController
     var cloudBookkeepingClient : String = ""
     // 2 New Customer Details (Client information)
@@ -80,6 +82,16 @@ class SharingManager {
     var tollsOther = ""
     var otherExp = ""
     var informationAboutOtherExp = ""
+    
+    
+    func addToPageHistory(pageNumber:String){
+        if let textRange = SharingManager.sharedInstance.pageHistory.rangeOfString(pageNumber){
+        } else {
+        
+            SharingManager.sharedInstance.pageHistory = SharingManager.sharedInstance.pageHistory + pageNumber
+            
+        }
+    }
     
     
     

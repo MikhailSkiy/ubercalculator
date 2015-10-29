@@ -31,6 +31,8 @@ class BasDetailsController: UIViewController,UIPickerViewDataSource,UIPickerView
     
     var myPicker = UIPickerView()
     
+    let pageNumber = "4,"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         BasPeriodTextField.inputView=myPicker
@@ -130,6 +132,9 @@ class BasDetailsController: UIViewController,UIPickerViewDataSource,UIPickerView
     }
     
     func writeValue(){
+        // Check is there current page was selected
+         SharingManager.sharedInstance.addToPageHistory(pageNumber)
+        
          SharingManager.sharedInstance.BASPeriod = BasPeriodTextField.text!
          SharingManager.sharedInstance.ABN = ABNTextField.text!
          SharingManager.sharedInstance.TFN = TFNTextField.text!

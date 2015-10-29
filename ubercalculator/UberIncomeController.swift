@@ -15,6 +15,7 @@ class UberIncomeController: UIViewController {
     @IBOutlet weak var miscField: UITextField!
     @IBOutlet weak var otherIncomeField: UITextField!
     @IBOutlet weak var detailsOfOtherIncome: UITextField!
+    let pageNumber="6,"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class UberIncomeController: UIViewController {
     }
     
     func writeValues(){
+        SharingManager.sharedInstance.addToPageHistory(pageNumber)
         SharingManager.sharedInstance.grossFares = grosFaresField.text!
         SharingManager.sharedInstance.tolls = tollsField.text!
         SharingManager.sharedInstance.misc = miscField.text!

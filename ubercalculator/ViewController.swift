@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     var isNewCustomer = false
     var isExistingCustomer = false
+    let pageNumber = "0,"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,10 @@ class ViewController: UIViewController {
     
 
     @IBAction func continueBtnPressed(sender: UIButton) {
+        // Check is there current page was selected
+                SharingManager.sharedInstance.addToPageHistory(pageNumber)
+        
+        
         if (isNewCustomer){
             SharingManager.sharedInstance.cloudBookkeepingClient = "New Customer"
             let mapViewControllerObejct = self.storyboard?.instantiateViewControllerWithIdentifier("NewCustomerDetailsController") as? NewCustomerDetailsController

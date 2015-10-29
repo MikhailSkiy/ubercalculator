@@ -43,6 +43,8 @@ class NewCustomerDetailsController: UIViewController, UIPickerViewDataSource,UIP
     
      var myPicker = UIPickerView()
     
+    let pageNumber = "3,"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         stateTextField.inputView=myPicker
@@ -193,6 +195,12 @@ class NewCustomerDetailsController: UIViewController, UIPickerViewDataSource,UIP
     
     
     func writeValue(){
+        // Check is there current page was selected
+        if let textRange = SharingManager.sharedInstance.pageHistory.rangeOfString(pageNumber){
+        } else {
+            SharingManager.sharedInstance.pageHistory = SharingManager.sharedInstance.pageHistory + "," + pageNumber
+        }
+        
         SharingManager.sharedInstance.firstName = firstNameField.text!
             SharingManager.sharedInstance.lastName = lastNameField.text!
             SharingManager.sharedInstance.businessName = businessName.text!

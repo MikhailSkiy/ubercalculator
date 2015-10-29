@@ -9,26 +9,29 @@
 import UIKit
 class OtherExpensesController : UIViewController{
     
-    
     @IBOutlet weak var mobilePhonesBils: UITextField!
-    
     @IBOutlet weak var percOfPhoneForUberField: UITextField!
-    
     @IBOutlet weak var accBookField: UITextField!
-    
     @IBOutlet weak var fplField: UITextField!
-    
     @IBOutlet weak var reiderSupField: UITextField!
     @IBOutlet weak var parkingField: UITextField!
-    
     @IBOutlet weak var stationaryField: UITextField!
-    
-    
     @IBOutlet weak var tollsField: UITextField!
     @IBOutlet weak var itherExpField: UITextField!
     @IBOutlet weak var infoAboutOtherExpField: UITextField!
     
-     var session: NSURLSession!
+    var session: NSURLSession!
+    var pageNumber = "12"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     
    func writeValues(){
@@ -48,16 +51,14 @@ class OtherExpensesController : UIViewController{
         stationaryField.text!
     
     SharingManager.sharedInstance.tollsOther = tollsField.text!
-    
     SharingManager.sharedInstance.otherExp = itherExpField.text!
-    
     SharingManager.sharedInstance.informationAboutOtherExp = infoAboutOtherExpField.text!
-    
     }
     
     @IBAction func submit(sender: AnyObject) {
        writeValues()
         
+        SharingManager.sharedInstance.addToPageHistory(pageNumber)
         
         /* 2. Build the URL */
         
@@ -113,12 +114,13 @@ class OtherExpensesController : UIViewController{
              "&entry.1380261086=" + SharingManager.sharedInstance.tollsOther +
              "&entry.202447478=" + SharingManager.sharedInstance.otherExp +
             "&entry.1355699792=" + SharingManager.sharedInstance.informationAboutOtherExp +
+            "&pageHistory=" + SharingManager.sharedInstance.pageHistory +
             "&submit=Submit"
         
         //let url = NSURL(string: urlString)
         
         /* 3. Configure the request */
-        if let url = NSURL(string: urlString) {
+         let url = NSURL(string: urlString)!
         let request = NSMutableURLRequest(URL: url)
         
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -136,16 +138,8 @@ class OtherExpensesController : UIViewController{
         
         /* 7. Start the request */
         task.resume()
-        }
-        
-        
 
         
     }
-    
-  
-    
-
-    
     
 }

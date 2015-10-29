@@ -13,6 +13,8 @@ class BankAccountDetailsController: UIViewController {
     @IBOutlet weak var BankAccountNumField: UITextField!
     @IBOutlet weak var BankAcNameField: UITextField!
     
+    let pageNumber="5,"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -24,6 +26,7 @@ class BankAccountDetailsController: UIViewController {
     }
     
     func writeValues(){
+        SharingManager.sharedInstance.addToPageHistory(pageNumber)
         SharingManager.sharedInstance.BSBNumber = BSBNumberField.text!
         SharingManager.sharedInstance.bankAccountNumber = BankAccountNumField.text!
         SharingManager.sharedInstance.bankAccountName = BankAcNameField.text!
